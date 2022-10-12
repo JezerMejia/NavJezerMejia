@@ -8,23 +8,32 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ni.edu.uca.navjezermejia.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/actionLoginToMenu"
             app:destination="@id/menuFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_agesFragment"
-            app:destination="@id/agesFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="ni.edu.uca.navjezermejia.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        android:label="Menú"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/actionMenuToAges"
+            app:destination="@id/agesFragment" />
+        <action
+            android:id="@+id/actionMenuToMultiple"
+            app:destination="@id/multipleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/agesFragment"
         android:name="ni.edu.uca.navjezermejia.AgesFragment"
-        android:label="fragment_ages"
+        android:label="Comparación de edades"
         tools:layout="@layout/fragment_ages" />
+    <fragment
+        android:id="@+id/multipleFragment"
+        android:name="ni.edu.uca.navjezermejia.MultipleFragment"
+        android:label="Múltiplos"
+        tools:layout="@layout/fragment_multiple" />
 </navigation>

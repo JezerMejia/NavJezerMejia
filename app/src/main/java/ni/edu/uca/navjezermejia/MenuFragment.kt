@@ -34,10 +34,10 @@ class MenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         this.binding.btnAges.setOnClickListener {
-            this.findNavController().navigate(R.id.menuFragment)
+            this.findNavController().navigate(R.id.actionMenuToAges)
         }
         this.binding.btnMultiple.setOnClickListener {
-            this.findNavController().navigate(R.id.menuFragment)
+            this.findNavController().navigate(R.id.actionMenuToMultiple)
         }
         this.binding.btnEvenNumbers.setOnClickListener {
             this.findNavController().navigate(R.id.menuFragment)
