@@ -13,10 +13,18 @@
         <action
             android:id="@+id/actionLoginToMenu"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_agesFragment"
+            app:destination="@id/agesFragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="ni.edu.uca.navjezermejia.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/agesFragment"
+        android:name="ni.edu.uca.navjezermejia.AgesFragment"
+        android:label="fragment_ages"
+        tools:layout="@layout/fragment_ages" />
 </navigation>

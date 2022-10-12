@@ -1,10 +1,14 @@
 package ni.edu.uca.navjezermejia
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.FragmentController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import ni.edu.uca.navjezermejia.databinding.FragmentLoginBinding
@@ -38,6 +42,9 @@ class LoginFragment : Fragment() {
         this.binding.btnLogin.setOnClickListener {
             this.validateLogin()
         }
+        this.binding.etPassword.addTextChangedListener {
+            this.binding.txtInputLayout.error = null
+        }
     }
 
     private fun validateLogin() {
@@ -50,7 +57,7 @@ class LoginFragment : Fragment() {
 
         this.binding.etPassword.setText("")
 
-        findNavController().navigate(R.id.menuFragment)
+        findNavController().navigate(R.id.actionLoginToMenu)
         //findNavController().navigate(R.id.actionLoginToMenu)
     }
 }
