@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import ni.edu.uca.navjezermejia.databinding.FragmentAgesBinding
 import ni.edu.uca.navjezermejia.databinding.FragmentLoginBinding
@@ -58,6 +59,11 @@ class AgesFragment : Fragment() {
     }
 
     private fun compareAges() {
+        this.array.sort()
+        val first = this.array.first()
+        val last = this.array.last()
 
+        this.binding.tvMayor.setText("Mayor: ${last}")
+        this.binding.tvMenor.setText("Menor: ${first}")
     }
 }
