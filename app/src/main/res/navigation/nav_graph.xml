@@ -25,6 +25,9 @@
         <action
             android:id="@+id/actionMenuToMultiple"
             app:destination="@id/multipleFragment" />
+        <action
+            android:id="@+id/actionMenuToEvenNumber"
+            app:destination="@id/evenNumberFragment" />
     </fragment>
     <fragment
         android:id="@+id/agesFragment"
@@ -36,4 +39,9 @@
         android:name="ni.edu.uca.navjezermejia.MultipleFragment"
         android:label="Múltiplos"
         tools:layout="@layout/fragment_multiple" />
+    <fragment
+        android:id="@+id/evenNumberFragment"
+        android:name="ni.edu.uca.navjezermejia.EvenNumberFragment"
+        android:label="Números pares"
+        tools:layout="@layout/fragment_even_number" />
 </navigation>

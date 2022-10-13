@@ -46,14 +46,14 @@ class MultipleFragment : Fragment() {
     private fun evaluateNumber() {
         try {
             val number = this.binding.etNumber.text.toString().toInt()
-            println("NUMBER: ${number}")
-            if (number % 3 == 0) {
-                Toast.makeText(this.requireContext(), "El número es múltiplo de 3", Toast.LENGTH_SHORT).show()
-            } else if (number % 5 == 0) {
-                Toast.makeText(this.requireContext(), "El número es múltiplo de 5", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this.requireContext(), "El número no es un múltiplo de 3 o 5", Toast.LENGTH_SHORT).show()
+
+            val message = when {
+                number % 3 == 0 && number % 5 == 0 -> "El número es múltiplo de 3 y 5"
+                number % 3 == 0 -> "El número es múltiplo de 3"
+                number % 5 == 0 -> "El número es múltiplo de 5"
+                else -> "El número no es múltiplo de 3 o 5"
             }
+            Toast.makeText(this.requireContext(), message, Toast.LENGTH_SHORT).show()
         } catch (ex: Exception) {
             this.binding.txtInputLayout.error = "No se pudo evaluar"
             println(ex)

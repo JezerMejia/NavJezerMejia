@@ -8,6 +8,10 @@
         <entry key="..\:/Users/isi15/AndroidStudioProjects/NavJezerMejia/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/isi15/AndroidStudioProjects/NavJezerMejia/app/src/main/res/layout/fragment_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/isi15/AndroidStudioProjects/NavJezerMejia/app/src/main/res/layout/fragment_multiple.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/age_item.xml" value="0.27692307692307694" />
+        <entry key="app/src/main/res/layout/even_number_item.xml" value="0.27692307692307694" />
+        <entry key="app/src/main/res/layout/fragment_ages.xml" value="0.26481481481481484" />
+        <entry key="app/src/main/res/layout/fragment_even_number.xml" value="0.27794871794871795" />
       </map>
     </option>
   </component>

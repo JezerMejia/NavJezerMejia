@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
+import androidx.recyclerview.widget.LinearLayoutManager
+import ni.edu.uca.navjezermejia.adapter.AgeAdapter
 import ni.edu.uca.navjezermejia.databinding.FragmentAgesBinding
-import ni.edu.uca.navjezermejia.databinding.FragmentLoginBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -17,7 +17,7 @@ import ni.edu.uca.navjezermejia.databinding.FragmentLoginBinding
  */
 class AgesFragment : Fragment() {
     private lateinit var binding: FragmentAgesBinding
-    private val array = ArrayList<Int>()
+    private val agesArray = ArrayList<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +35,10 @@ class AgesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        this.binding.recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
+        this.binding.recyclerView.adapter = AgeAdapter(::agesArray)
+
         this.binding.btnAdd.setOnClickListener {
             this.addAge()
         }
@@ -45,25 +49,30 @@ class AgesFragment : Fragment() {
             this.binding.txtInputLayout.error = null
         }
         this.binding.btnClear.setOnClickListener {
-            this.array.clear()
+            val size = this.agesArray.size
+            this.agesArray.clear()
+            this.binding.recyclerView.adapter?.notifyItemRangeRemoved(0, size)
         }
     }
 
     private fun addAge() {
         try {
             val age = this.binding.etAge.text.toString().toInt()
-            this.array.add(age)
+            this.agesArray.add(age)
+
+            this.binding.recyclerView.adapter?.notifyItemInserted(this.agesArray.size)
         } catch (ex: Exception) {
             this.binding.txtInputLayout.error = "No se pudo obtener la edad"
         }
     }
 
     private fun compareAges() {
-        this.array.sort()
-        val first = this.array.first()
-        val last = this.array.last()
+        if (this.agesArray.size == 0) return
+        val sorted = this.agesArray.sorted()
+        val first = sorted.first()
+        val last = sorted.last()
 
-        this.binding.tvMayor.setText("Mayor: ${last}")
-        this.binding.tvMenor.setText("Menor: ${first}")
+        this.binding.tvMayor.text = "Mayor: ${last}"
+        this.binding.tvMenor.text = "Menor: ${first}"
     }
 }

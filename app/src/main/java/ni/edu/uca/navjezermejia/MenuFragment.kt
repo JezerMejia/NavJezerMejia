@@ -40,7 +40,7 @@ class MenuFragment : Fragment() {
             this.findNavController().navigate(R.id.actionMenuToMultiple)
         }
         this.binding.btnEvenNumbers.setOnClickListener {
-            this.findNavController().navigate(R.id.menuFragment)
+            this.findNavController().navigate(R.id.actionMenuToEvenNumber)
         }
     }
 }

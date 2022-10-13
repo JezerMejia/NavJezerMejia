@@ -38,58 +38,70 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Añadir"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtInputLayout" />
+        app:layout_constraintTop_toBottomOf="@id/txtInputLayout">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCompare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Comparar"
-        app:layout_constraintEnd_toStartOf="@id/btnClear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnAdd" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:text="Añadir" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnClear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Limpiar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnCompare"
-        app:layout_constraintTop_toBottomOf="@id/btnAdd" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:text="Comparar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:text="Limpiar" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvMenor"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Menor: "
-        app:layout_constraintTop_toBottomOf="@id/btnClear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvMayor"
         android:layout_marginTop="24dp"
-        />
+        android:text="Menor: "
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvMayor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
     <TextView
         android:id="@+id/tvMayor"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Mayor: "
-        app:layout_constraintTop_toBottomOf="@id/btnClear"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="24dp"
+        android:text="Mayor: "
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvMenor"
-        />
+        app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMayor"
+        tools:listitem="@layout/age_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
